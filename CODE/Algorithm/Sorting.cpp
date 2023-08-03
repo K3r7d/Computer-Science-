@@ -18,7 +18,8 @@ int main(){
         cout<<"1. Insertion sort"<<endl;
         cout<<"2. Merge sort"<<endl;
         cout<<"3. Selection sort"<<endl;
-        cout<<"4. Bubble sort"<<endl;  
+        cout<<"4. Bubble sort"<<endl;
+        cout<<"5. Bogo sort"<<endl;  
         cout<<"Enter your choice: ";
     int choice;
     cin>>choice;
@@ -33,6 +34,8 @@ int main(){
         SelectionSort(arr);
         if(choice == 4)
         BubbleSort(arr);
+        if(choice == 5)
+        BogoSort(arr);
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<milliseconds>(stop - start);
     //-----------------------------------------------------------//
