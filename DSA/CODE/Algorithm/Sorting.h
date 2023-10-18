@@ -119,6 +119,7 @@ void DecreasingInsertionSort(vector<int> &arr){
 
 
 
+
 void MergeSort(vector<int> &arr,int l,int r){
     if(l<r){
         int m = (l+r)/2;
@@ -152,12 +153,22 @@ void BubbleSort(vector<int> &arr){
     }
 }
 
-void BogoSort(vector<int> &arr){
-    while(!isSorted(arr)){
-        shuffle(arr);
+void QuickSort(vector<int> &arr,int l,int r){
+    if(l<r){
+        int pivot = arr[r];
+        int i = l-1;
+        for(int j = l;j<r;j++){
+            if(arr[j]<pivot){
+                i++;
+                swap(arr[i],arr[j]);
+            }
+        }
+        swap(arr[i+1],arr[r]);
+        int p = i+1;
+        QuickSort(arr,l,p-1);
+        QuickSort(arr,p+1,r);
     }
 }
-
 
 
 #endif
