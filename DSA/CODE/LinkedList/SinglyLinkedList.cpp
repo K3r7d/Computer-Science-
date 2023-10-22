@@ -54,6 +54,7 @@ class SinglyLinkedList : public ListADT<T>
             count++;
         }
         void remove(T data) {
+            if(head->next == nullptr) return;
             Node* temp = head->next;
             Node* prev = nullptr;
 
@@ -61,27 +62,25 @@ class SinglyLinkedList : public ListADT<T>
                 prev = temp;
                 temp = temp->next;
             }
-
-            if (temp == nullptr) {
-                // Data not found, do nothing.
-                return;
-            }
-
-            if (prev == nullptr) {
-                // The target data is in the first node.
+            
+            if (temp == head->next) {
                 head->next = temp->next;
+                delete temp;
+                count--;
+                return;
             } else {
-                prev->next = temp->next;
+                if (prev != nullptr) {
+                    prev->next = temp->next;
+                    delete temp;
+                    count--;
+                }
             }
-
-            delete temp;
-            count--;
         }
 
 
         bool search(T data){
             Node* temp = head->next;
-            while (temp != nullptr) {
+            while (temp->next!= nullptr) {
                 if (temp->data == data) {
                     return true;
                 }
@@ -112,7 +111,7 @@ int main(){
         sll.insert(arr[i]);
     }
     sll.print();
-    sll.remove(2);
+    sll.remove(5);
     bool s = sll.search(5);
     std::cout << 5 << (s == 1 ? "In List" : "Not In List");
     sll.print();
