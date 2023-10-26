@@ -19,7 +19,7 @@ class SinglyLinkedList : public ListADT<T>
             this->next = NULL;
         }
         ~Node(){
-            delete next;
+            next = NULL;
         }
     };
     private:
@@ -58,7 +58,7 @@ class SinglyLinkedList : public ListADT<T>
             Node* temp = head->next;
             Node* prev = nullptr;
 
-            while (temp != nullptr && temp->data != data) {
+            while (temp->next != nullptr && temp->data != data) {
                 prev = temp;
                 temp = temp->next;
             }
@@ -113,7 +113,7 @@ int main(){
     sll.print();
     sll.remove(5);
     bool s = sll.search(5);
-    std::cout << 5 << (s == 1 ? "In List" : "Not In List");
+    std::cout << 5 << (s == 1 ? " In List" : " Not In List")<<endl;
     sll.print();
     return 0;
 }
