@@ -77,6 +77,14 @@ class SinglyLinkedList : public ListADT<T>
             }
         }
 
+        Node* getNode(int index){
+            if(index < 0 || index >= count) return nullptr;
+            Node* temp = head->next;
+            for(int i = 0;i<index;i++){
+                temp = temp->next;
+            }
+            return temp;
+        }
 
         bool search(T data){
             Node* temp = head->next;

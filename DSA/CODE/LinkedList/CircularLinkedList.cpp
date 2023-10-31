@@ -124,11 +124,11 @@ class CircularLinkedList : public ListADT<T>
 
 };
 
-int main(){
-    int arr[10] = {9, 3, 4, 8, 2, 1, 7, 6, 5, 0};
-    CircularLinkedList<int> list;
-    for(int i = 0;i<10;i++){
-        list.insert(arr[i]);
-    }
-    list.print();
-}
+// int main(){
+//     int arr[10] = {9, 3, 4, 8, 2, 1, 7, 6, 5, 0};
+//     CircularLinkedList<int> list;
+//     for(int i = 0;i<10;i++){
+//         list.insert(arr[i]);
+//     }
+//     list.print();
+// }
